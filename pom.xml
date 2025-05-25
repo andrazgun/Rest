@@ -14,6 +14,8 @@
         <testNGVersion>7.10.2</testNGVersion>
         <hamcrest>3.0</hamcrest>
         <restAssured>5.5.0</restAssured>
+        <jackson.databind>2.19.0</jackson.databind>
+        <assertj.core>3.27.3</assertj.core>
     </properties>
     <dependencies>
         <dependency>
@@ -31,6 +33,18 @@
             <groupId>org.hamcrest</groupId>
             <artifactId>hamcrest</artifactId>
             <version>${hamcrest}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson.databind}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+            <version>${assertj.core}</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 
