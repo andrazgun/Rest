@@ -1,3 +1,5 @@
+package com.rest;
+
 import io.restassured.RestAssured;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -5,6 +7,7 @@ import utils.ConfigLoader;
 
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 
 import static io.restassured.RestAssured.given;
@@ -89,11 +92,12 @@ public class DynamicJson {
         RestAssured.baseURI = ConfigLoader.get("baseURI");
 
         String filePath = "src/main/resources/Library/addBook.json";
-        assertThat(Files.exists(Paths.get(filePath)))
+        Path path = Paths.get(filePath);
+        assertThat(Files.exists(path))
                 .as("JSON file must exist: %s", filePath)
                 .isTrue();
 
-        String requestBody = Files.readString(Paths.get(filePath));
+        String requestBody = Files.readString(path);
 
         String response =
                 given()
